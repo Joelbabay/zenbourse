@@ -1,0 +1,9 @@
+<article class="blog-post">
+    <h2 class="blog-post-title">{{ homeArticle.title }}</h2>
+    <p class="blog-post-meta">
+        {{ homeArticle.createdAt|date('d M Y') }}
+    </p>
+    <p>
+        {{ homeArticle.content|raw }}
+    </p>
+</article>
