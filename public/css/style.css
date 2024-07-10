@@ -25,12 +25,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .blog-header-top {
-    background-color: #fff;
 }
 
 .blog-header-logo {
     font-family: "Playfair Display", Georgia, "Times New Roman", serif /*rtl:Amiri, Georgia, "Times New Roman", serif*/;
     font-size: 2.25rem;
+    text-decoration: none;
 }
 
 .blog-post-title {
@@ -47,7 +47,16 @@ h1, h2, h3, h4, h5, h6 {
     color: #727272;
 }
 
-.link-secondary {
-    text-decoration: none !important;
+.blog-nav-second {
+    background-color: #fff;
+}
+
+.blog-nav {
+    line-height: 1;
+    border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+a {
+    text-decoration: none;
 }
 

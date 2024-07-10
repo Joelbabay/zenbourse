@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zenbourse Le perdant{% endblock %}
+
+{% block body %}
+    <main class="container mt-4">
+        <div class="row g-5" >
+            <div class="col-md-8">
+                <h3 class="display-5 fst-italic">Grosses pertes, Petits profits</h3>
+                <p>
+                    Pour gagner en bourseIl faut apprendre avant de faire
+                </p>
+            </div>
+            <div class="col-md-4">
+
+                {% include 'home/partials/widget.html.twig' %}
+
+            </div>
+
+        </div>
+
+    </main>
+{% endblock %}
