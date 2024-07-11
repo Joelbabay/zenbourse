@@ -15,8 +15,11 @@
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
+
     </head>
     <body class="d-flex flex-column h-100">
+    {% set url_home = "home" %}
+    {% set url_investisseur = "investisseur" %}
              <!-- Navigation-->
             {% block body %}{% endblock %}
             <!-- Footer-->

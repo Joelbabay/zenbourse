@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'investisseur/partials/menu.html.twig' %}
+    <div class="bg-light position-sticky" style="top: 9.3rem; z-index: 1">
+        <div class="container">
+            <div class="nav-scroller py-2">
+                <div class="py-3 blog-nav d-flex align-items-center justify-content-start border-0">
+                    <span class="fw-bolder m-0">LA MÉTHODE -></span>
+                    <nav class="nav d-flex justify-content-between text-uppercase">
+                        {% for sub_menu in get_sub_menus(url_investisseur, "lamethode").subMenus %}
+                            <a class="px-4 link-secondary" href="{{ path(sub_menu.url) }}">{{ sub_menu.title }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-5 mt-1" >
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+
+            {% include 'home/partials/widget.html.twig' %}
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block title %}
+    Zenbourse - Investisseur - La méthode
+{% endblock %}
+

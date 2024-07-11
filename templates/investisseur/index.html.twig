@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zenbourse - Investisseur{% endblock %}
+
+{% block body %}
+    {% include 'investisseur/partials/menu.html.twig' %}
+    <main class="container">
+        <div class="p-4 p-md-5 mb-4 text-dark rounded bg-light">
+            <div class="col px-0 text-center">
+                <h1 class="display-5 fst-italic">« Se simplifier la vie c'est le luxe suprême ! »</h1>
+                <span class="fst-italic">Léonard de Vinci</span>
+                <p class="lead my-3">Une méthode simple c'est le luxe suprême ! La méthode <span class="fw-bold">ZENBOURSE</span> c'est le luxe suprême !</p>
+            </div>
+        </div>
+        <div class="row g-5" >
+            <div class="col-md-8">
+                <h3 class="pb-4 mb-4 fst-italic border-bottom">Les boîtes de DARVAS</h3>
+                <div class="" id="article-liste">
+
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                {% include 'home/partials/widget.html.twig' %}
+
+            </div>
+
+        </div>
+
+    </main>
+{% endblock %}

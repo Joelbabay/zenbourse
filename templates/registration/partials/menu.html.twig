@@ -55,18 +55,4 @@
 
         </div>
     </div>
-
-    <div class="nav-scroller mb-2 blog-nav-second">
-
-        <div class="container py-3 blog-nav">
-
-            <nav class="nav d-flex justify-content-between text-uppercase">
-                {% for menu in get_menus(url_home) %}
-                    <a class="p-2 link-secondary" href="{{ path(menu.url) }}">{{ menu.title }}</a>
-                {% endfor %}
-            </nav>
-
-        </div>
-
-    </div>
 </div>

@@ -29,7 +29,7 @@ class HomeController extends AbstractController
         return $this->render('home/method.html.twig');
     }
 
-    #[Route('/perdant', name: 'app_perdant')]
+    #[Route('/le-perdant', name: 'app_perdant')]
     public function perdant(): Response
     {
         return $this->render('home/perdant.html.twig');
@@ -49,6 +49,12 @@ class HomeController extends AbstractController
 
     #[Route('/performance', name: 'app_performance')]
     public function performance(): Response
+    {
+        return $this->render('home/performance.html.twig');
+    }
+
+    #[Route('/contact', name: 'app_contact')]
+    public function contact(): Response
     {
         return $this->render('home/performance.html.twig');
     }
