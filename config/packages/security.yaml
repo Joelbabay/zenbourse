@@ -16,11 +16,10 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            form_login:
-                login_path: app_login
-                check_path: app_login
+
             logout:
                 path: app_logout
+            custom_authenticator: App\Security\LoginAuthenticator
                 # where to redirect after logout
                 # target: app_any_route
 
@@ -35,6 +34,9 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/file/download, roles: IS_AUTHENTICATED_FULLY }
+        # - { path: ^/investisseur, roles: ROLE_INVESTISSEUR }
+
 
 when@test:
     security:

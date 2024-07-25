@@ -5,14 +5,14 @@
 {% block body %}
     {% include 'registration/partials/menu.html.twig' %}
 
-    <div class="container w-50 p-5 mb-4">
-        <h1 class="fst-italic">S'inscrire</h1>
+    <div class="container m-auto mt-5 col-md-4 bg-light p-4">
+        <h2 class="fst-italic mb-3">S'inscrire</h2>
         {{ form_errors(registrationForm) }}
         {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword) }}
 
-        <button type="submit" class="btn btn-primary">Inscription</button>
+        <button type="submit" class="btn zen-button text-light btn-light w-100 mt-4">Inscription</button>
         {{ form_end(registrationForm) }}
 
         <p class="pt-3">Vous avez déjà un compte ? <a href="{{ path('app_login') }}">Se connecter</a></p>

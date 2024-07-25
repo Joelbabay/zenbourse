@@ -10,39 +10,34 @@
                         <a class="blog-header-logo text-dark" href="/">Zenbourse 50</a>
                     </div>
 
-                    {# <div class="col-2 pt-1">
-                                <a class="link-secondary" href=" {{ path('admin') }}">Tableau de bord</a>
-                            </div> #}
-
-                    <div class="col-4 d-flex justify-content-between text-end">
-                        <div>
-                            <a class="link-secondary" href="{{ path('app_investisseur') }}">METHODE INVESTISSEUR</a>
-                        </div>
-                        <div>
-                            <a class="link-secondary" href="#">METHODE INTRADAY</a>
-                        </div>
+                    <div class="col-4 pt-1">
+                        <h3 class="fst-italic text-light">Les boîtes de DARVAS</h3>
                     </div>
 
-                    <div class="col-2 d-flex justify-content-end align-items-center">
+                    <div class="col-4 d-flex align-items-center">
                         {#<a class="link-secondary" href="#" aria-label="Search">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
                                 </a>#}
-                        <a class="btn btn-sm btn-outline-secondary mr-2" href="{{ path('app_login') }}">CONNEXION</a>
+                        <div class="mr-3">
+                            <a class="link-light" href="{{ path('app_investisseur') }}">METHODE INVESTISSEUR</a>
+                        </div>
+                        <div class="p-3">
+                            <a class="link-light" href="{{ path('app_intraday') }}">METHODE INTRADAY</a>
+                        </div>
+
+                        {% if app.user %}
+                            <a class="btn btn-sm btn-outline-secondary mr-2" href="{{ path('app_logout') }}">DECONNEXION</a>
+                                {% else %}
+                                    <a class="btn btn-sm btn-outline-secondary mr-2" href="{{ path('app_login') }}">CONNEXION</a>
+                        {% endif %}
 
                         <div class="btn-group" style="margin-left: 15px;">
-                            <button class="bg-zen-primary btn btn-primary btn-sm dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-light btn-sm dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 FR
                             </button>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu text-dark">
                                 <li>
                                     <a class="dropdown-item" href="#"><i class="flag-united-kingdom flag"></i>English <i class="fa fa-check text-success ms-2"></i></a>
-                                </li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li>
-                                    <a class="dropdown-item" href="#"><i class="flag-poland flag"></i>Polski</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#"><i class="flag-china flag"></i>China</a>
                                 </li>
                             </ul>
                         </div>
@@ -58,11 +53,11 @@
 
     <div class="nav-scroller mb-2 blog-nav-second">
 
-        <div class="container py-3 blog-nav">
+        <div class="container blog-nav">
 
             <nav class="nav d-flex justify-content-between text-uppercase">
-                {% for menu in get_menus(url_home) %}
-                    <a class="p-2 link-secondary" href="{{ path(menu.url) }}">{{ menu.title }}</a>
+                {% for menu in get_menus(url_home)  %}
+                    <a class="px-2 py-3 link-secondary nav-link {% if app.request.get('_route') == menu.url%} active fw-bold {% endif %}" href="{{ path(menu.url) }}">{{ menu.title }}</a>
                 {% endfor %}
             </nav>
 

@@ -4,6 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Contact;
+use App\Entity\Menu;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -26,6 +29,7 @@ class DashboardController extends AbstractDashboardController
     {
         return Dashboard::new()
             ->setTitle('Zenbourse')
+
             
             ;
     }
@@ -41,5 +45,26 @@ class DashboardController extends AbstractDashboardController
 
             ]
         );
+
+        yield MenuItem::subMenu('Compte', 'fas fa-user')->setSubItems(
+            [
+                MenuItem::linkToCrud('Utilisateurs', 'fas fa-user-friends', User::class),
+                MenuItem::linkToCrud('Ajouter', 'fas fa-plus', User::class)->setAction(Crud::PAGE_NEW),
+            ]
+        )
+        ;
+
+        yield MenuItem::subMenu('Menus', 'fas fa-list')->setSubItems([
+            MenuItem::linkToCrud('Pages', 'fas fa-file', Menu::class)
+                ->setQueryParameter('submenuIndex', 0),
+            MenuItem::linkToCrud('Articles', 'fas fa-newspaper', Menu::class)
+                ->setQueryParameter('submenuIndex', 1),
+            MenuItem::linkToCrud('Liens personnalisés', 'fas fa-link', Menu::class)
+                ->setQueryParameter('submenuIndex', 2),
+            MenuItem::linkToCrud('Catégories', 'fab fa-delicious', Menu::class)
+                ->setQueryParameter('submenuIndex', 3),
+        ]);
+
+        yield MenuItem::linkToCrud('Contact', 'fas fa-message', Contact::class);
     }
 }

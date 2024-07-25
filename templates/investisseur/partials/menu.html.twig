@@ -17,7 +17,7 @@
 
                     <div class="col-2 d-flex justify-content-between text-end">
                         <div>
-                            <a class="link-secondary text-light" href="#">METHODE INTRADAY</a>
+                            <a class="link-light text-light" href="{{ path('app_intraday') }}">METHODE INTRADAY</a>
                         </div>
                     </div>
 
@@ -25,7 +25,11 @@
                         {#<a class="link-secondary" href="#" aria-label="Search">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
                                 </a>#}
-                        <a class="btn btn-sm btn-outline-light mr-2 text-light" href="#">CONNEXION</a>
+                        {% if app.user %}
+                            <a class="btn btn-sm btn-outline-light mr-2" href="{{ path('app_logout') }}">DECONNEXION</a>
+                        {% else %}
+                            <a class="btn btn-sm btn-outline-light mr-2" href="{{ path('app_login') }}">CONNEXION</a>
+                        {% endif %}
 
                         <div class="btn-group" style="margin-left: 15px;">
                             <button class="bg-zen-primary btn btn-primary btn-sm dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,15 +59,13 @@
     </div>
 
     <div class="nav-scroller mb-2 blog-nav-second">
+        {% set menu = get_menus(url_investisseur) %}
 
-        <div class="container py-3 border-0 blog-nav" >
-
+        <div class="container border-0 blog-nav" >
             <nav class="nav d-flex justify-content-between text-uppercase">
-
-                {% for menu in get_menus(url_investisseur) %}
-                    <a class="p-2 link-secondary" href="{{ path(menu.url) }}">{{ menu.title }}</a>
+                {% for k, m in menu %}
+                    <a class="px-2 py-3 link-secondary {% if app.request.get('_route') == m.url%} active-investisseur {% endif %}" href="{{ path(m.url) }}">{{ m.title }}</a>
                 {% endfor %}
-
             </nav>
 
         </div>

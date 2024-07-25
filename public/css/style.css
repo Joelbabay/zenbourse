@@ -5,6 +5,27 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     line-height: 1.2;
 }
+a {
+    color: #183D3D;
+}
+
+input {
+    border: none !important;
+    border-bottom: 1px solid #183D3D !important;
+    background: none !important ;
+    border-radius: 1px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+input:focus {
+    border-bottom: 3px solid #183D3D !important;
+}
+
+input::placeholder {
+    font-size: 14px;
+    color: rgba(175, 175, 175, 0.87) !important;
+}
 
 .bg-zen-primary {
     background-color: #183D3D;
@@ -12,6 +33,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-zen-investisseur {
     background-color: #00A8B4;
+}
+
+.bg-zen-intraday {
+    background-color: #DC6A19;
+}
+
+.active-intraday {
+    color: #DC6A19;
+    border-bottom: 3px solid #DC6A19;
+}
+
+.active-investisseur {
+    color: #00A8B4;
+    border-bottom: 3px solid #00A8B4;
 }
 
 .text-zen-primary {
@@ -62,5 +97,74 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     text-decoration: none;
+}
+
+.active {
+    color: #183D3D;
+    border-bottom: 3px solid #183D3D;
+}
+
+.zen-button {
+    background-color: #183D3D;
+    border: #183D3D;
+    border-radius: 0px;
+}
+
+.zen-button:hover{
+    background-color: #F9F9F9;
+    color: #183D3D !important;
+}
+
+.form-control:focus{
+    box-shadow: none !important;
+}
+
+.dropdown-menu a {
+    color: #000 !important;
+}
+
+/* padding-bottom and top for image */
+.mfp-no-margins img.mfp-img {
+    padding: 0;
+}
+/* position of shadow behind the image */
+.mfp-no-margins .mfp-figure:after {
+    top: 0;
+    bottom: 0;
+}
+/* padding for main container */
+.mfp-no-margins .mfp-container {
+    padding: 0;
+}
+
+
+/*
+
+for zoom animation
+uncomment this part if you haven't added this code anywhere else
+
+*/
+
+
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+	opacity: 0;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+		opacity: 1;
+}
+.mfp-with-zoom.mfp-ready.mfp-bg {
+		opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+	opacity: 0;
 }
 

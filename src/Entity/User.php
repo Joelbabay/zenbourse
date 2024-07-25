@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Model\TimestampedInterface;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -14,7 +15,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, TimestampedInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -69,11 +70,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $lastConnexion = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $isInvestisseurClient = null;
+    #[ORM\Column(nullable: false)]
+    private ?bool $isInvestisseurClient = false;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $isIntradayClient = null;
+    #[ORM\Column(nullable: false)]
+    private ?bool $isIntradayClient = false;
+
+
+     #[ORM\Column(nullable: false)]
+    private ?bool $isInvestisseurApproved = false;
+
+    #[ORM\Column(nullable: false)]
+    private ?bool $isInvestisseurPending = false;
 
     /**
      * @var Collection<int, Statut>
@@ -274,7 +282,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): static
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
 
@@ -286,6 +294,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->lastConnexion;
     }
 
+    #ORM/
     public function setLastConnexion(?\DateTimeInterface $lastConnexion): static
     {
         $this->lastConnexion = $lastConnexion;
@@ -313,6 +322,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIntradayClient(?bool $isIntradayClient): static
     {
         $this->isIntradayClient = $isIntradayClient;
+
+        return $this;
+    }
+
+    public function isInvestisseurApproved(): bool
+    {
+        return $this->isInvestisseurApproved;
+    }
+
+    public function setIsInvestisseurApproved(bool $isInvestisseurApproved): self
+    {
+        $this->isInvestisseurApproved = $isInvestisseurApproved;
+
+        return $this;
+    }
+
+    public function isInvestisseurPending(): bool
+    {
+        return $this->isInvestisseurPending;
+    }
+
+    public function setIsInvestisseurPending(bool $isInvestisseurPending): self
+    {
+        $this->isInvestisseurPending = $isInvestisseurPending;
 
         return $this;
     }

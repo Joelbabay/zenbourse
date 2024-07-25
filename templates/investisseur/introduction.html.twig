@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'investisseur/partials/menu.html.twig' %}
+
+    <div class="row g-5 mt-1" >
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+
+            {% include 'investisseur/partials/_widget.html.twig' %}
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block title %}
+    Zenbourse - Investisseur - La méthode
+{% endblock %}

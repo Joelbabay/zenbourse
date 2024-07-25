@@ -8,32 +8,33 @@ class MenuExtensionRuntime implements RuntimeExtensionInterface
 {
     const MENUS = [
         "home" => [
-            "accueil" => [
-                "title" => "Accueil",
+            "" => [
+                "title" => "accueil",
                 "url" => "app_home"
             ],
             "methodes" => [
-                "title" => "Methodes",
+                "title" => "methodes",
+                "slug" => "methodes",
                 "url" => "app_methode"
             ],
-            "leperdant" => [
-                "title" => "Le perdant",
+            "le-perdant" => [
+                "title" => "le perdant",
                 "url" => "app_perdant"
             ],
             "citation" => [
-                "title" => "Citation",
+                "title" => "citation",
                 "url" => "app_citation"
             ],
-            "biendebuter" => [
-                "title" => "Bien debuter",
+            "bien-debuter" => [
+                "title" => "bien debuter",
                 "url" => "app_bien_debuter"
             ],
             "performance" => [
-                "title" => "Performance",
+                "title" => "performance",
                 "url" => "app_performance"
             ],
             "contact" => [
-                "title" => "Contact",
+                "title" => "contact",
                 "url" => "app_contact"
             ]
 
@@ -44,54 +45,98 @@ class MenuExtensionRuntime implements RuntimeExtensionInterface
                 "url" => "app_investisseur_presentation",
                 "subMenus" => []
             ],
-            "lamethode" => [
+            "la-methode" => [
                 "title" => "La methode",
                 "url" => "app_investisseur_methode",
                 "subMenus" => [
                     [
                         "title" => "Vague d'elliot",
-                        "url" => "app_investisseur_methode",
+                        "url" => "app_investisseur_methode_vagues_elliott",
                     ],
                     [
                         "title" => "cycles boursiers",
-                        "url" => "app_investisseur_methode",
+                        "url" => "app_investisseur_methode_cycles_boursiers",
                     ],
                     [
                         "title" => "Boites / Bulles",
-                        "url" => "app_investisseur_methode",
+                        "url" => "app_investisseur_methode_boites_bulles",
                     ],
                     [
                         "title" => "Indicateurs",
-                        "url" => "app_investisseur_methode",
+                        "url" => "app_investisseur_methode_indicateurs",
                     ]
                 ]
             ],
             "bibliotheque" => [
-                "title" => "Biblioteque",
-                "url" => "app_investisseur_methode",
-                "subMenus" => []
+                "title" => "Bibliotheque",
+                "url" => "app_investisseur_bibliotheque",
+                "subMenus" => [
+                    [
+                        "title" => "pics de volumes",
+                        "url" => "app_investisseur_bibliotheque_pics_volumes",
+                    ],
+                    [
+                        "title" => "ramassage",
+                        "url" => "app_investisseur_bibliotheque_ramasssage"
+                    ],
+                    [
+                        "title" => "ramassage + pic",
+                        "url" => "app_investisseur_bibliotheque_ramasssage_pic"
+                    ],
+                    [
+                      "title" => "pic + ramassage",
+                        "url" => "app_investisseur_bibliotheque_pic_ramassage"
+                    ],
+                    [
+                        "title" => "volumes faibles",
+                        "url" => "app_investisseur_bibliotheque_volumes_faibles"
+                    ],
+                    [
+                        "title" => "introductions",
+                        "url" => "app_investisseur_bibliotheque_introduction"
+                    ]
+                ]
             ],
             "outils" => [
                 "title" => "Outils",
-                "url" => "app_investisseur_methode",
+                "url" => "app_investisseur_outils",
                 "subMenus" => []
             ],
             "Gestion" => [
                 "title" => "Gestion",
-                "url" => "app_investisseur_methode",
+                "url" => "app_investisseur_gestion",
                 "subMenus" => []
             ],
             "Introduction" => [
                 "title" => "Introduction",
-                "url" => "app_investisseur_methode",
+                "url" => "app_investisseur_introduction",
                 "subMenus" => []
             ]
         ],
+        "intraday"=> [
+            "home" => [
+                "title" => "Accueil",
+                "url" => "app_intraday",
+            ],
+            "presentation" => [
+                "title" => "presentation",
+                "url" => "app_intraday_presentation",
+            ],
+            "methode" => [
+                "title" => "la methode",
+                "url" => "app_intraday_methode",
+            ],
+            "bibliotheque" => [
+                "title" => "bibliotheque",
+                "url" => "app_intraday_bibliotheque",
+            ]
+        ]
     ];
 
     public function __construct()
     {
         // Inject dependencies if needed
+
     }
 
     public function getMenus($value): array
