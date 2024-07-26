@@ -70,18 +70,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timesta
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $lastConnexion = null;
 
-    #[ORM\Column(nullable: false)]
+    #[ORM\Column(type:'boolean', nullable: true)]
     private ?bool $isInvestisseurClient = false;
 
-    #[ORM\Column(nullable: false)]
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $isIntradayClient = false;
-
-
-     #[ORM\Column(nullable: false)]
-    private ?bool $isInvestisseurApproved = false;
-
-    #[ORM\Column(nullable: false)]
-    private ?bool $isInvestisseurPending = false;
 
     /**
      * @var Collection<int, Statut>
@@ -302,50 +295,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timesta
         return $this;
     }
 
-    public function isInvestisseurClient(): ?bool
+    public function getIsInvestisseurClient(): ?bool
     {
         return $this->isInvestisseurClient;
     }
 
-    public function setInvestisseurClient(?bool $isInvestisseurClient): static
+    public function setIsInvestisseurClient(?bool $isInvestisseurClient): static
     {
         $this->isInvestisseurClient = $isInvestisseurClient;
 
         return $this;
     }
 
-    public function isIntradayClient(): ?bool
+    public function getIsIntradayClient(): ?bool
     {
         return $this->isIntradayClient;
     }
 
-    public function setIntradayClient(?bool $isIntradayClient): static
+    public function setIsIntradayClient(?bool $isIntradayClient): static
     {
         $this->isIntradayClient = $isIntradayClient;
-
-        return $this;
-    }
-
-    public function isInvestisseurApproved(): bool
-    {
-        return $this->isInvestisseurApproved;
-    }
-
-    public function setIsInvestisseurApproved(bool $isInvestisseurApproved): self
-    {
-        $this->isInvestisseurApproved = $isInvestisseurApproved;
-
-        return $this;
-    }
-
-    public function isInvestisseurPending(): bool
-    {
-        return $this->isInvestisseurPending;
-    }
-
-    public function setIsInvestisseurPending(bool $isInvestisseurPending): self
-    {
-        $this->isInvestisseurPending = $isInvestisseurPending;
 
         return $this;
     }

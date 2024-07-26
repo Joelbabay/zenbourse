@@ -30,12 +30,7 @@ class InvestisseurController extends AbstractController
     {
         $user = $this->getUser();
 
-        if ($user && $user->isInvestisseurPending()) {
-            $this->addFlash('info', 'Votre demande d\'adhésion est en cours de traitement.');
-            return $this->redirectToRoute('app_home');
-        }
-
-        if ($user && $user->isInvestisseurApproved()) {
+        if ($user && $user->getIsInvestisseurClient()) {
             $this->addFlash('info', 'Vous êtes déjà abonné à la méthode investisseur.');
             return $this->redirectToRoute('app_investisseur');
         }
@@ -64,7 +59,7 @@ class InvestisseurController extends AbstractController
 
             $this->entityManager->flush();
 
-            $this->subscriptionService->requestInvestisseurSubscription($user);
+            //$this->subscriptionService->requestInvestisseurSubscription($user);
 
             $this->addFlash('success', 'Votre demande d\'adhésion a été soumise avec succès.');
 

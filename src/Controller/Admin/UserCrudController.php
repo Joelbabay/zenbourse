@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Service\SubscriptionService;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
@@ -27,6 +28,14 @@ class UserCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return User::class;
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle(Crud::PAGE_INDEX, 'Users')
+            ->setEntityLabelInSingular('User')
+            ->setEntityLabelInPlural('Users');
     }
 
 
@@ -52,9 +61,18 @@ class UserCrudController extends AbstractCrudController
                 ])->onlyOnIndex(),
             TextField::new('phone'),
             TextField::new('city'),
-            BooleanField::new('isInvestisseurClient'),
-            BooleanField::new('isIntradayClient'),
-            BooleanField::new('isInvestisseurApproved', 'Approbation Investisseur'),
+            BooleanField::new('isInvestisseurClient', 'Investisseur')->setFormTypeOptions([
+                'mapped' => true,
+                'attr' => [
+                    'class' => 'js-investisseur-checkbox'
+                ]
+            ]),
+            BooleanField::new('isIntradayClient', 'Intraday')->setFormTypeOptions([
+                'mapped' => true,
+                'attr' => [
+                    'class' => 'js-intraday-checkbox'
+                ]
+            ]),
         ];
     }
 
@@ -65,7 +83,6 @@ class UserCrudController extends AbstractCrudController
         $hashedPassword = $this->passwordHasher->hashPassword($user, $plainPassword);
 
         $user->setPassword($hashedPassword);
-        //$this->subscriptionService->approveInvestisseurSubscription($user);
 
         parent::persistEntity($entityManager, $entityInstance);
     }
@@ -75,12 +92,6 @@ class UserCrudController extends AbstractCrudController
         return $filters
             ->add(BooleanFilter::new('isInvestisseurApproved', 'Approbation Investisseur'))
             ->add(BooleanFilter::new('isIntradayApproved', 'Approbation Intraday'));
-    }
-    public function approveAction(EntityManagerInterface $entityManager, User $user, $entityInstance)
-    {
-        $this->subscriptionService->approveInvestisseurSubscription($user);
-
-        parent::persistEntity($entityManager, $entityInstance);
     }
 
 }

@@ -16,12 +16,12 @@ class SubscriptionService
 
     public function requestInvestisseurSubscription(User $user)
     {
-        $user->setIsInvestisseurPending(true);
+        $user->setIsInvestisseurClient(true);
         $this->entityManager->persist($user);
         $this->entityManager->flush();
     }
 
-    public function approveInvestisseurSubscription(User $user)
+    /*public function approveInvestisseurSubscription(User $user)
     {
         if ($user->isInvestisseurPending()) {
             $user->setInvestisseurClient(true);
@@ -30,12 +30,12 @@ class SubscriptionService
             $this->entityManager->persist($user);
             $this->entityManager->flush();
         }
-    }
+    }*/
 
     public function subscribeToIntraday(User $user)
     {
-        if ($user->isInvestisseurApproved()) {
-            $user->setIntradayClient(true);
+        if ($user->getIsInvestisseurClient()) {
+            $user->setIsIntradayClient(true);
             $this->entityManager->persist($user);
             //$this->entityManager->flush();
         } else {
