@@ -61,7 +61,7 @@ class UserCrudController extends AbstractCrudController
                 ])->onlyOnIndex(),
             TextField::new('phone'),
             TextField::new('city'),
-            BooleanField::new('isInvestisseurClient', 'Investisseur')->setFormTypeOptions([
+            BooleanField::new('', 'Investisseur')->setFormTypeOptions([
                 'mapped' => true,
                 'attr' => [
                     'class' => 'js-investisseur-checkbox'
