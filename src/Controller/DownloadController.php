@@ -10,7 +10,6 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class DownloadController extends AbstractController
 {
@@ -31,6 +30,7 @@ class DownloadController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->persist($anonymousUser);
+            $this->addFlash('success', "La demande est bien envoyer");
             $this->entityManager->flush();
 
             return $this->redirectToRoute('file_download');

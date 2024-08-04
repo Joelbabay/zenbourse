@@ -1,7 +1,11 @@
-console.log('hello');
-document.addEventListener('DOMContentLoaded', function() {
-    const investisseurCheckbox = document.querySelector('.js-investisseur-checkbox input[type="checkbox"]');
-    const intradayCheckbox = document.querySelector('.js-intraday-checkbox input[type="checkbox"]');
+console.log("hello");
+document.addEventListener("DOMContentLoaded", function() {
+    const investisseurCheckbox = document.querySelector(
+        '.js-investisseur-checkbox input[type="checkbox"]'
+    );
+    const intradayCheckbox = document.querySelector(
+        '.js-intraday-checkbox input[type="checkbox"]'
+    );
 
     function toggleIntradayCheckbox() {
         if (investisseurCheckbox.checked) {
@@ -16,5 +20,5 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleIntradayCheckbox();
 
     // Add event listener
-    investisseurCheckbox.addEventListener('change', toggleIntradayCheckbox);
+    investisseurCheckbox.addEventListener("change", toggleIntradayCheckbox);
 });
