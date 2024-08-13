@@ -84,7 +84,7 @@ class MenuExtensionRuntime implements RuntimeExtensionInterface
                         "url" => "app_investisseur_bibliotheque_ramasssage_pic"
                     ],
                     [
-                      "title" => "pic + ramassage",
+                        "title" => "pic + ramassage",
                         "url" => "app_investisseur_bibliotheque_pic_ramassage"
                     ],
                     [
@@ -113,7 +113,7 @@ class MenuExtensionRuntime implements RuntimeExtensionInterface
                 "subMenus" => []
             ]
         ],
-        "intraday"=> [
+        "intraday" => [
             "home" => [
                 "title" => "Accueil",
                 "url" => "app_intraday",
@@ -144,7 +144,8 @@ class MenuExtensionRuntime implements RuntimeExtensionInterface
         return self::MENUS[$value];
     }
 
-    public function getSubMenus($parent, $value): array {
+    public function getSubMenus($parent, $value): array
+    {
         return self::MENUS[$parent][$value];
     }
 }

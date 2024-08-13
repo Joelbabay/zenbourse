@@ -11,8 +11,7 @@ class MenuExtension extends AbstractExtension
 {
     public function getFilters(): array
     {
-        return [
-        ];
+        return [];
     }
 
     public function getFunctions(): array

@@ -1,16 +1,19 @@
-{% set menus = get_sub_menus(url_investisseur, app.request.get("slug")) %}
-
-<div class="bg-light position-sticky" style="top: 1.3rem; z-index: 1">
-    <div class="container">
-        <div class="nav-scroller py-2">
-            <div class="py-3 blog-nav d-flex align-items-center justify-content-start border-0">
-                <span class="fw-bolder m-0">LA MÉTHODE -></span>
-                <nav class="nav d-flex justify-content-between text-uppercase">
-                    {% for childMenu in menus.subMenus %}
-                        <a class="px-4 link-secondary" href="{{ path('app_methode') }}">{{ childMenu.title }}</a>
-                    {% endfor %}
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
+{% for key, menu in get_menus('investisseur') %}
+	{% if menu.subMenus is defined %}
+		<div class="bg-light position-sticky" style="top: 8.3rem; z-index: 1">
+			<div class="container">
+				<div class="nav-scroller py-2">
+					<div class="py-3 blog-nav d-flex align-items-center justify-content-start border-0">
+						<span class="fw-bolder m-0">LA MÉTHODE -></span>
+						<nav class="nav d-flex justify-content-between text-uppercase">
+							{% for subMenu in menu.subMenus %}
+								<li class="{% if is_active(subMenu) %}active{% endif %}">
+									<a href="{{ path(subMenu.url) }}">{{ subMenu.title }}</a>
+								</li>
+							{% endfor %}
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}

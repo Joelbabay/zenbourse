@@ -1,25 +1,32 @@
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif /*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/
+    ;
     margin-top: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
 }
+
 a {
-    color: #183D3D;
+    color: #183d3d;
 }
 
 input {
     border: none !important;
-    border-bottom: 1px solid #183D3D !important;
-    background: none !important ;
+    border-bottom: 1px solid #183d3d !important;
+    background: none !important;
     border-radius: 1px !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
 
 input:focus {
-    border-bottom: 3px solid #183D3D !important;
+    border-bottom: 3px solid #183d3d !important;
 }
 
 input::placeholder {
@@ -28,52 +35,59 @@ input::placeholder {
 }
 
 .bg-zen-primary {
-    background-color: #183D3D;
+    background-color: #183d3d;
 }
 
 .bg-zen-investisseur {
-    background-color: #00A8B4;
+    background-color: #00a8b4;
 }
 
 .bg-zen-intraday {
-    background-color: #DC6A19;
+    background-color: #dc6a19;
+}
+
+.active {
+    color: #183d3d;
+    border-bottom: 3px solid #183d3d;
 }
 
 .active-intraday {
-    color: #DC6A19;
-    border-bottom: 3px solid #DC6A19;
+    color: #dc6a19;
+    border-bottom: 3px solid #dc6a19;
 }
 
 .active-investisseur {
-    color: #00A8B4;
-    border-bottom: 3px solid #00A8B4;
+    color: #00a8b4;
+    border-bottom: 3px solid #00a8b4;
 }
 
 .text-zen-primary {
-    color: #183D3D;
+    color: #183d3d;
 }
-.bg-zen-primary a{
+
+.bg-zen-primary a {
     color: #fff !important;
 }
+
 .blog-footer {
     padding: 2.5rem 0;
     color: #727272;
     text-align: center;
     background-color: #f9f9f9;
-    border-top: .05rem solid #e5e5e5;
+    border-top: 0.05rem solid #e5e5e5;
 }
 
-.blog-header-top {
-}
+.blog-header-top {}
 
 .blog-header-logo {
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif /*rtl:Amiri, Georgia, "Times New Roman", serif*/;
-    font-size: 2.25rem;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/
+    ;
+    font-size: 2rem;
     text-decoration: none;
 }
 
 .blog-post-title {
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
     font-size: 2.5rem;
 }
 
@@ -99,23 +113,18 @@ a {
     text-decoration: none;
 }
 
-.active {
-    color: #183D3D;
-    border-bottom: 3px solid #183D3D;
-}
-
 .zen-button {
-    background-color: #183D3D;
-    border: #183D3D;
+    background-color: #183d3d;
+    border: #183d3d;
     border-radius: 0px;
 }
 
-.zen-button:hover{
-    background-color: #F9F9F9;
-    color: #183D3D !important;
+.zen-button:hover {
+    background-color: #f9f9f9;
+    color: #183d3d !important;
 }
 
-.form-control:focus{
+.form-control:focus {
     box-shadow: none !important;
 }
 
@@ -123,16 +132,24 @@ a {
     color: #000 !important;
 }
 
+
 /* padding-bottom and top for image */
+
 .mfp-no-margins img.mfp-img {
     padding: 0;
 }
+
+
 /* position of shadow behind the image */
+
 .mfp-no-margins .mfp-figure:after {
     top: 0;
     bottom: 0;
 }
+
+
 /* padding for main container */
+
 .mfp-no-margins .mfp-container {
     padding: 0;
 }
@@ -145,26 +162,25 @@ uncomment this part if you haven't added this code anywhere else
 
 */
 
-
 .mfp-with-zoom .mfp-container,
 .mfp-with-zoom.mfp-bg {
-	opacity: 0;
-	-webkit-backface-visibility: hidden;
-	-webkit-transition: all 0.3s ease-out;
-	-moz-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	transition: all 0.3s ease-out;
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 .mfp-with-zoom.mfp-ready .mfp-container {
-		opacity: 1;
+    opacity: 1;
 }
+
 .mfp-with-zoom.mfp-ready.mfp-bg {
-		opacity: 0.8;
+    opacity: 0.8;
 }
 
 .mfp-with-zoom.mfp-removing .mfp-container,
 .mfp-with-zoom.mfp-removing.mfp-bg {
-	opacity: 0;
+    opacity: 0;
 }
-

@@ -22,7 +22,6 @@ class DownloadController extends AbstractController
     #[Route('/download', name: 'download_page')]
     public function downloadPage(Request $request): Response
     {
-
         //dd($parameterBag->get('download_directory'));
         $anonymousUser = new AnonymousUser();
         $form = $this->createForm(AnonymousUserType::class, $anonymousUser);
